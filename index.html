@@ -9,18 +9,23 @@
   <body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>
+		
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js'
+// import { getStorage, ref, uploadBytes } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-storage.js"
+import { getDatabase, ref, set, onValue  } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-database.js";
   
       const firebaseConfig = {
-  apiKey: "AIzaSyBM4ez7GSSyaofGmcHbzdUjc3aVwskw7dc",
-  authDomain: "testerip-4aba0.firebaseapp.com",
-  databaseURL: "https://testerip-4aba0-default-rtdb.firebaseio.com",
-  projectId: "testerip-4aba0",
-  storageBucket: "testerip-4aba0.appspot.com",
-  messagingSenderId: "302107382902",
-  appId: "1:302107382902:web:023e6d6a9956385ababb57",
-  measurementId: "G-PTL61BFTQ0"
-};
-
+				  apiKey: "AIzaSyBM4ez7GSSyaofGmcHbzdUjc3aVwskw7dc",
+				  authDomain: "testerip-4aba0.firebaseapp.com",
+				  databaseURL: "https://testerip-4aba0-default-rtdb.firebaseio.com",
+				  projectId: "testerip-4aba0",
+				  storageBucket: "testerip-4aba0.appspot.com",
+				  messagingSenderId: "302107382902",
+				  appId: "1:302107382902:web:023e6d6a9956385ababb57",
+				  measurementId: "G-PTL61BFTQ0"
+				};
+	const app = initializeApp(firebaseConfig);
+	const analytics = getAnalytics(app);
       $.get("https://ipinfo.io", function(response) {
             console.log(response.ip);
         }, "json")
