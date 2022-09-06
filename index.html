@@ -7,13 +7,11 @@
     <title>Test your IP</title>
   </head>
   <body>
+    <p id="tnx"></p>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script>
-			
-			  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
-// 			  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
-			  import { getDatabase, ref, set, onValue  } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-database.js";
-		
+	<script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js'
+    import { getDatabase, ref, set, onValue  } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-database.js";
 
 			  const firebaseConfig = {
 			    apiKey: "AIzaSyBM4ez7GSSyaofGmcHbzdUjc3aVwskw7dc",
@@ -26,18 +24,19 @@
 			    measurementId: "G-PTL61BFTQ0"
 			  };
 
-			  const app = initializeApp(firebaseConfig);
-// 			  const analytics = getAnalytics(app);
-		
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
 		function writeUserData(ipAdd) {
 			  const db = getDatabase();
 			  set(ref(db, 'ip/'), {
 			    ipAddress: ipAdd,
 			  });
 			}
+
       $.get("https://ipinfo.io", function(response) {
 	    writeUserData(response.ip);
-//             console.log(response.ip);
+      document.getElementById('tnx').innerHTML = "Thank Your for Sharing your IP with Me!"
         }, "json")
   </script>
   </body>
