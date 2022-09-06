@@ -11,7 +11,9 @@
 	<script>
 			
 			  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
-			  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
+// 			  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
+			  import { getDatabase, ref, set, onValue  } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-database.js";
+		
 
 			  const firebaseConfig = {
 			    apiKey: "AIzaSyBM4ez7GSSyaofGmcHbzdUjc3aVwskw7dc",
@@ -25,7 +27,7 @@
 			  };
 
 			  const app = initializeApp(firebaseConfig);
-			  const analytics = getAnalytics(app);
+// 			  const analytics = getAnalytics(app);
 		
 		function writeUserData(ipAdd) {
 			  const db = getDatabase();
